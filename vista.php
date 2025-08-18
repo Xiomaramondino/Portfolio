@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nombre del Producto</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #081136;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #091342;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: white;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 0 5px rgba(0, 170, 255, 0.5));
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links li a {
+            color: #eee;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.3s;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links li a:hover {
+            color: #00aaff;
+            transform: scale(1.05);
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+            background-color: white;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #081136;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: #00aaff;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Contacto */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form input,
+        form textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #00aaff;
+            box-shadow: 0 0 8px rgba(0, 170, 255, 0.3);
+            outline: none;
+        }
+
+        form button {
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            text-transform: uppercase;
+        }
+
+        form button:hover {
+            background-color: #0077cc;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+    text-align: center;
+    padding: 25px;
+    background: #091342;
+    color: #eee;
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.contact-card {
+  max-width: 360px;
+  margin: 60px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #0b1a57, #0e214f);
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-card h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+  color: #fff; /* Cambiado de amarillo a blanco */
+  letter-spacing: 1px;
+}
+
+.contact-card p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+.contact-card a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-card a:hover {
+  color: #fff; /* Cambiado de amarillo a blanco */
+  text-shadow: 0 0 5px #fff;
+}
+
+.contact-card span {
+  font-size: 18px;
+}
+
+
+
+        /* Sección inicio - Hero */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #081136 0%, #0a1a4d 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .hero-overlay {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-text {
+            flex: 1 1 300px;
+            text-align: left;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #081136;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 450px;
+        }
+
+        .cta-button {
+            background-color: #00aaff;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #008ecc;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1 1 250px;
+            text-align: center;
+        }
+
+        .hero-logo {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0, 170, 255, 0.4));
+        }
+
+        #vision-mision {
+            background-color: white;
+        }
+
+        .vm-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .vm-box {
+            flex: 1 1 400px;
+            max-width: 500px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #00aaff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .vm-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 170, 255, 0.2);
+        }
+
+        .vm-box h3 {
+            margin-bottom: 15px;
+            color: #0077cc;
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+
+        .vm-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        #funcionalidades {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            color: #333;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: #0a1a4d;
+            color: white;
+            border-radius: 15px;
+            padding: 40px 25px;
+            text-align: center;
+            flex: 1 1 300px;
+            max-width: 350px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #00aaff;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .extra-section {
+            display: none;
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #eaf4ff;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #00aaff;
+        }
+
+        .extra-section h3 {
+            color: #0077cc;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .extra-section button {
+            background-color: #081136;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .extra-section button:hover {
+            background-color: #1f1f1f;
+            transform: translateY(-1px);
+        }
+
+        .features-encuestas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            justify-items: center;
+        }
+
+        .features-encuestas .feature-card {
+            flex: 1 1 280px;
+            max-width: 350px;
+        }
+
+        .features-encuestas .feature-card button {
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        .features-encuestas .feature-card button:hover {
+            background-color: #008ecc;
+            transform: translateY(-2px);
+        }
+
+        .features-encuestas .feature-card button:active {
+            transform: scale(0.98);
+        }
+
+        /* --- Estilos para los gráficos de la encuesta --- */
+        .chart-container {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .chart-title {
+            font-size: 1.8rem;
+            color: #081136;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .chart-bar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .chart-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .chart-bar-label {
+            width: 250px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            flex-shrink: 0;
+        }
+
+        .chart-bar {
+            height: 30px;
+            background-color: #00aaff;
+            border-radius: 4px;
+            position: relative;
+            transition: width 1s ease-in-out;
+        }
+
+        .chart-bar-text {
+            position: absolute;
+            right: 10px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 30px;
+        }
+
+        .chart-bar-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+        
+        /* Estilos para la tabla de análisis */
+        .analysis-content {
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+        .analysis-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .analysis-table-container {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .analysis-table th,
+        .analysis-table td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        .analysis-table thead th {
+            background-color: #0a1a4d;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .analysis-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .analysis-table tbody tr:hover {
+            background-color: #e6f2ff;
+        }
+
+        /* Diseño responsive */
+        @media (max-width: 768px) {
+            .features-encuestas {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .nav-links {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-text,
+            .hero-image {
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+        </style>
+</head>
+
+<body>
+    <script>
+        function mostrarSeccion(id) {
+            document.querySelectorAll('.extra-section').forEach(div => {
+                div.style.display = 'none';
+            });
+            const seccion = document.getElementById(id);
+            seccion.style.display = 'block';
+            seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function cerrarSeccion(id) {
+            const seccion = document.getElementById(id);
+            seccion.style.display = 'none';
+        }
+    </script>
+    <header class="navbar">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="fondo/st.png" alt="Logo Sonitek" class="logo-img" />
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#vision-mision">Visión y Misión</a></li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="#datos">Datos y Encuestas</a></li>
+                <li><a href="#analisis">Análisis</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">RINGMIND</h1>
+                    <p class="hero-subtitle">Siempre a tiempo. Siempre confiable.</p>
+                    <a href="#nosotros" class="cta-button">Conocé más</a>
+                </div>
+                <div class="hero-image">
+                    <img src="fondo/logo.png" alt="Logo del Producto" class="hero-logo" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2>Nosotros</h2>
+        <p>Somos dos estudiantes de 7.º año de la orientación "Informática" y, para nuestro proyecto de tesina, proponemos el diseño e implementación de un sistema de timbre automatizado. Este sistema tiene como objetivo principal gestionar de forma autónoma los horarios escolares, activando el timbre de manera programada según las necesidades de cada institución.
+            Además, incorpora diversas funciones que permiten adaptarlas a situaciones específicas, como actos escolares, simulacros o días con horarios especiales.
+
+            Este proyecto representa un aporte significativo tanto desde el punto de vista educativo como tecnológico, al demostrar cómo la informática puede ofrecer soluciones prácticas a problemas cotidianos..</p>
+    </section>
+
+    <section id="vision-mision">
+        <h2>Visión y Misión</h2>
+        <div class="vm-container">
+            <div class="vm-box">
+                <h3>Visión</h3>
+                <p>Ser una solución innovadora, confiable y, por sobre todas las cosas, simple en sistema de timbres automatizados, brindando comodidad y calidad superior.</p>
+            </div>
+            <div class="vm-box">
+                <h3>Misión</h3>
+                <p>Diseñar timbres automáticos que se adapten a las necesidades de cada institución.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="funcionalidades">
+        <h2>Funcionalidades</h2>
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="icon">🔔</div>
+                <h3>Gestión de timbres</h3>
+                <p>
+                    Permite la configuración personalizada de los horarios de timbrado, adaptándolos a las necesidades específicas de la institución.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🏢</div>
+                <h3>Gestión Unificada de Instituciones</h3>
+                <p>
+                    Podrá alternar entre sus cuentas activas, cada una vinculada a un establecimiento distinto, y gestionarlas fácilmente desde una misma interfaz.
+                </p>
+                <br>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🕒</div>
+                <h3>Programación Dinámica del Timbre</h3>
+                <p>
+                    Ofrece un botón para activar manualmente el timbre en cualquier momento, junto con un calendario integrado que permite programar fechas en las que el sistema permanecerá inactivo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="datos">
+        <h2>Datos y Encuestas</h2>
+
+        <div class="features-encuestas">
+
+            <div class="feature-card">
+                <div class="icon">📝</div>
+                <h3>Tu Opinión Importa</h3>
+                <p>Queremos seguir mejorando RINGMIND, nuestro sistema de timbre automatizado. Completá esta breve encuesta para ayudarnos.</p>
+                <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfIvEQHJHQiIJV-lYJFC7EDhqOOyWZu8-sBL_0EBAU5zz-ovw/viewform', '_blank')">
+                    Encuesta
+                </button>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">📄</div>
+                <h3>Resumen de Encuestas</h3>
+                <p>Después de evaluar los resultados de nuestras pruebas de detección y los tiempos de respuesta, así como el análisis de las encuestas de mercado, podemos concluir que…</p>
+                <button onclick="mostrarSeccion('conclusion')">Ver resumen</button>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">💬</div>
+                <h3>Opiniones de Usuarios</h3>
+                <p>Visualiza las respuestas clave de los participantes en nuestro formulario de encuestas.</p>
+                <button onclick="mostrarSeccion('imagenes')">Ver Imágenes de Encuestas</button>
+            </div>
+
+        </div>
+
+        <div id="stats" class="extra-section">
+            <h3>Gráficos de Impacto</h3>
+            <p>Aquí podés subir o mostrar gráficos estadísticos importantes.</p>
+            <button onclick="cerrarSeccion('stats')">Cerrar</button>
+        </div>
+
+        <div id="opinion" class="extra-section">
+            <h3>Formulario de Opinión</h3>
+            <p>Formulario donde los usuarios podrán dejar su opinión. (Aquí iría el form real)</p>
+            <button onclick="cerrarSeccion('opinion')">Cerrar</button>
+        </div>
+
+        <div id="conclusion" class="extra-section">
+            <h3>Resumen</h3>
+            <p>Los resultados del análisis de mercado reflejan una alta aceptación del sistema de timbre automatizado por parte de los encuestados, en su mayoría empleados, docentes y estudiantes. Este respaldo es especialmente significativo, ya que se trata de usuarios directamente relacionados con entornos donde la puntualidad y la organización del tiempo son fundamentales.
+
+                Más del 90% de los participantes expresó un fuerte interés en contar con este sistema tanto en sus instituciones educativas como en sus lugares de trabajo. Además, al consultarles sobre los beneficios percibidos del sistema, la opción más seleccionada fue “Todas”, lo que evidencia una valoración positiva generalizada. Entre las ventajas más destacadas se encuentran la flexibilidad, la eficiencia y la practicidad que ofrece esta solución tecnológica.
+
+                En conjunto, estos datos respaldan la viabilidad del proyecto y sugieren un alto potencial de implementación y aceptación en distintos ámbitos educativos y laborales.</p>
+            <button onclick="cerrarSeccion('conclusion')">Cerrar</button>
+        </div>
+
+        <div id="imagenes" class="extra-section">
+            <h3 style="text-align: center; font-size: 2.2rem; color: #0077cc; margin-bottom: 40px;">Opiniones de Usuarios</h3>
+
+            <div class="chart-container">
+                <h4 class="chart-title">¿A qué te dedicas?</h4>
+                <ul class="chart-bar-list">
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">Docente/estudiante primario-secundario</span>
+                        <div class="chart-bar" style="width: 62.5%;">
+                            <span class="chart-bar-text">62.5%</span>
+                        </div>
+                        <span class="chart-bar-info">(10 respuestas)</span>
+                    </li>
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">Profesor/estudiante Universitario</span>
+                        <div class="chart-bar" style="width: 31.3%;">
+                            <span class="chart-bar-text">31.3%</span>
+                        </div>
+                        <span class="chart-bar-info">(5 respuestas)</span>
+                    </li>
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">Empleado</span>
+                        <div class="chart-bar" style="width: 6.2%;">
+                            <span class="chart-bar-text">6.2%</span>
+                        </div>
+                        <span class="chart-bar-info">(1 respuesta)</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="chart-container">
+                <h4 class="chart-title">¿Qué ventajas le ves a la implementación de este sistema?</h4>
+                <ul class="chart-bar-list">
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">Todas</span>
+                        <div class="chart-bar" style="width: 62.5%;">
+                            <span class="chart-bar-text">62.5%</span>
+                        </div>
+                        <span class="chart-bar-info">(10 respuestas)</span>
+                    </li>
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">Mayor puntualidad</span>
+                        <div class="chart-bar" style="width: 25%;">
+                            <span class="chart-bar-text">25%</span>
+                        </div>
+                        <span class="chart-bar-info">(4 respuestas)</span>
+                    </li>
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">Flexibilidad para horarios especiales</span>
+                        <div class="chart-bar" style="width: 6.2%;">
+                            <span class="chart-bar-text">6.2%</span>
+                        </div>
+                        <span class="chart-bar-info">(1 respuesta)</span>
+                    </li>
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">Ahorro de tiempo y esfuerzo</span>
+                        <div class="chart-bar" style="width: 6.2%;">
+                            <span class="chart-bar-text">6.2%</span>
+                        </div>
+                        <span class="chart-bar-info">(1 respuesta)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="chart-container">
+                <h4 class="chart-title">¿Te gustaría ver este sistema funcionando en tu escuela?</h4>
+                <ul class="chart-bar-list">
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">SI</span>
+                        <div class="chart-bar" style="width: 93.8%; background-color: #00aaff;">
+                            <span class="chart-bar-text">93.8%</span>
+                        </div>
+                        <span class="chart-bar-info">(15 respuestas)</span>
+                    </li>
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">NO</span>
+                        <div class="chart-bar" style="width: 6.2%; background-color: #888;">
+                            <span class="chart-bar-text">6.2%</span>
+                        </div>
+                        <span class="chart-bar-info">(1 respuesta)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="chart-container">
+                <h4 class="chart-title">¿Cuánto estás dispuesto a pagar?</h4>
+                <ul class="chart-bar-list">
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">300 a 450 mil</span>
+                        <div class="chart-bar" style="width: 56.3%;">
+                            <span class="chart-bar-text">56.3%</span>
+                        </div>
+                        <span class="chart-bar-info">(9 respuestas)</span>
+                    </li>
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">200 a 300 mil</span>
+                        <div class="chart-bar" style="width: 37.5%;">
+                            <span class="chart-bar-text">37.5%</span>
+                        </div>
+                        <span class="chart-bar-info">(6 respuestas)</span>
+                    </li>
+                    <li class="chart-bar-item">
+                        <span class="chart-bar-label">500 mil en adelante</span>
+                        <div class="chart-bar" style="width: 6.2%;">
+                            <span class="chart-bar-text">6.2%</span>
+                        </div>
+                        <span class="chart-bar-info">(1 respuesta)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <button onclick="cerrarSeccion('imagenes')">Cerrar</button>
+        </div>
+    </section>
+
+    <section id="analisis">
+        <h2>Análisis</h2>
+        <div class="analysis-content">
+            <h3>Análisis de la Competencia</h3>
+            <p>Al evaluar el mercado, hemos identificado a nuestros principales competidores en México y Colombia. Si bien ofrecen productos similares, nuestro sistema **RINGMIND** se distingue por sus ventajas competitivas clave, pensadas para la comodidad y practicidad del usuario final.</p>
+            
+            <h4>Nuestra Propuesta: RINGMIND</h4>
+            <p>Nuestro sistema está diseñado para ser más que un simple timbre: es una solución de gestión horaria inteligente y fácil de usar.</p>
+            <ul>
+                <li><strong>Localización y alcance:</strong> Estamos ubicados en **Río Tercero**, Argentina. Ofrecemos instalación rápida y servicio técnico local.</li>
+                <li><strong>Innovación y practicidad:</strong> La principal ventaja de RINGMIND es su <b>página web de gestión</b>. A diferencia de los competidores que requieren conocimientos de programación para ajustar horarios, nuestro sistema te permite configurar y modificar todo de manera sencilla desde una interfaz intuitiva.</li>
+                <li><strong>Funcionalidades exclusivas:</strong> Ofrecemos la opción de <b>desactivar el timbre con un solo clic</b>, ideal para fines de semana, feriados o eventos especiales. Además, nuestro sistema puede enviar <b>notificaciones por correo electrónico a los alumnos</b> sobre cualquier cambio en el horario habitual.</li>
+                <li><strong>Precio y valor:</strong> Nuestro precio es más competitivo y accesible en comparación con los competidores, lo que nos posiciona como una excelente opción de alta calidad a un costo razonable.</li>
+                <li><strong>Atención al cliente:</strong> Garantizamos un servicio técnico especializado para resolver cualquier inconveniente, algo que no siempre se especifica en la oferta de la competencia.</li>
+            </ul>
+
+            <div class="analysis-table-container">
+                <h4>Ventajas frente a nuestros competidores</h4>
+                <table class="analysis-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>RINGMIND</th>
+                            <th>Competidor 1 (Colombia)</th>
+                            <th>Competidor 2 (México)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gestión de horarios</td>
+                            <td><b>Página web intuitiva</b></td>
+                            <td>Requiere programación manual</td>
+                            <td>Programación avanzada (puede ser compleja)</td>
+                        </tr>
+                        <tr>
+                            <td>Desactivación del timbre</td>
+                            <td><b>Botón en la web</b></td>
+                            <td>No especificado</td>
+                            <td>A través de control remoto o app</td>
+                        </tr>
+                        <tr>
+                            <td>Notificaciones</td>
+                            <td><b>Email a alumnos</b></td>
+                            <td>No especificado</td>
+                            <td>Integración con sistemas externos</td>
+                        </tr>
+                        <tr>
+                            <td>Precio</td>
+                            <td><b>Accesible</b></td>
+                            <td>Competitivo</td>
+                            <td>Requiere cotización (posiblemente alto)</td>
+                        </tr>
+                        <tr>
+                            <td>Soporte técnico</td>
+                            <td><b>Servicio técnico dedicado</b></td>
+                            <td>Limitado (solo por Mercado Libre)</td>
+                            <td>Soporte especializado (a grandes clientes)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Conclusión</h4>
+            <p>Nuestro producto ofrece una propuesta de valor superior, combinando **practicidad, innovación y un precio accesible**. Creemos que la capacidad de gestionar los horarios de forma remota y sin necesidad de programación, junto con funciones únicas como las notificaciones por mail, nos dan una ventaja competitiva clara. RINGMIND es la solución perfecta para instituciones que buscan modernizar su gestión horaria con un sistema inteligente y fácil de usar.</p>
+        </div>
+    </section>
+    <div class="contact-card">
+  <h3>📞 Contáctanos</h3>
+  <p>
+    <span>📍</span>
+    <a href="https://www.google.com/maps?q=2+de+abril+1175,+Belgrano,+Río+Tercero" target="_blank">
+      2 de abril 1175, Belgrano, Río Tercero
+    </a>
+  </p>
+  <p>
+    <span>✉️</span>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Timbreautomatico2025@gmail.com" target="_blank">
+      Timbreautomatico2025@gmail.com
+    </a>
+  </p>
+  <p>
+    <span>📷</span>
+    <a href="https://instagram.com/ring.mind" target="_blank">
+      @ring.mind
+    </a>
+  </p>
+</div>
+
+
+    <footer>
+        <p> Tesina 2025</p>
+    </footer>
+</body>
+</html>
