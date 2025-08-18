@@ -944,7 +944,7 @@
   </p>
   <p>
     <span>📷</span>
-    <br><a href="https://instagram.com/ring.mind" target="_blank"></br>
+    <br><a href="https://instagram.com/ring.mind" target="_blank"></br> 
       @ring.mind
     </a>
   </p>
