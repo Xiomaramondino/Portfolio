@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nombre del Producto</title>
+    <title>Portfolio SONITEK</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <style>
@@ -15,7 +15,6 @@ body {
     color: #fff;
     background: #0a1a3f;
 }
-
 
 /* ===== Navbar general ===== */
 .navbar {
@@ -30,13 +29,11 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== Logo ===== */
 .logo-img {
   height: 50px;
   width: auto;
 }
 
-/* ===== Nav links ===== */
 .nav-links {
   list-style: none;
   display: flex;
@@ -54,7 +51,7 @@ body {
   color: #00d4ff;
 }
 
-/* ===== Responsive (pantallas pequeñas) ===== */
+/* ===== Responsive Navbar ===== */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -71,14 +68,13 @@ body {
     display: flex;
   }
 }
+
 /* ==== SECCIONES ==== */
-  
 section {
     padding: 40px 8%;
     min-height: auto;
 }
 
-/* Alternancia de fondos */
 #inicio { background: linear-gradient(135deg, #0a1a3f, #102f63); }
 #nosotros { background: linear-gradient(135deg, #102f63, #1a3e8c); }
 #vision-mision { background: linear-gradient(135deg, #1a3e8c, #102f63); }
@@ -86,7 +82,6 @@ section {
 #datos { background: linear-gradient(135deg, #1a3e8c, #102f63); }
 #analisis { background: linear-gradient(135deg, #0a1a3f, #1a3e8c); }
 #contacto { background: linear-gradient(135deg, #1a3e8c, #102f63); }
-
 
 .hero {
     height: 70vh;
@@ -123,7 +118,7 @@ section {
 .hero-subtitle {
     font-size: 1.5rem;
     margin: 20px 0 30px;
-    color: #555;
+    color: white;
 }
 
 .hero-button {
@@ -159,7 +154,7 @@ section {
 .close-gallery:hover {
     background: #005f99;
 }
-/* Galería oculta */
+
 .corporate-gallery {
     display: none;
     margin-top: 40px;
@@ -186,7 +181,6 @@ section {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==== CARDS ==== */
 .card,
 .vm-box,
 .feature-card,
@@ -206,7 +200,6 @@ section {
     transform: translateY(-4px);
 }
 
-/* ==== NOSOTROS ==== */
 #nosotros p {
     background: rgba(15, 45, 100, 0.6);
     padding: 20px;
@@ -216,7 +209,6 @@ section {
     line-height: 1.6;
 }
 
-/* ==== VISIÓN Y MISIÓN ==== */
 .vm-container {
     display: flex;
     gap: 20px;
@@ -230,7 +222,6 @@ section {
     text-align: center;
 }
 
-/* ==== FUNCIONALIDADES ==== */
 .features-container {
     display: flex;
     gap: 20px;
@@ -249,7 +240,6 @@ section {
     margin-bottom: 10px;
 }
 
-/* ==== DATOS Y ENCUESTAS ==== */
 .features-encuestas {
     display: flex;
     gap: 20px;
@@ -260,13 +250,12 @@ section {
 .extra-section {
     margin-top: 15px;
     padding: 20px;
-    background: rgba(15, 45, 100, 0.7); /* mismo color que cards */
+    background: rgba(15, 45, 100, 0.7);
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     display: none;
 }
 
-/* ==== ANÁLISIS ==== */
 .analysis-content {
     background: rgba(15, 45, 100, 0.75);
     padding: 30px;
@@ -289,17 +278,16 @@ section {
     background: rgba(0, 170, 255, 0.25);
 }
 
-/* ==== CONTACTO ==== */
 .contact-card {
     max-width: 500px;
-    margin: 40px auto 20px auto; /* separación mayor arriba y abajo */
+    margin: 40px auto 20px auto;
     text-align: center;
-    background: rgba(15, 45, 100, 0.75); /* mismo color que otras cards */
-    color: #fff; /* texto blanco como navbar */
+    background: rgba(15, 45, 100, 0.75);
+    color: #fff;
 }
 
 .contact-card a {
-    color: #00aaff; /* links mantienen azul */
+    color: #00aaff;
     text-decoration: none;
     font-weight: 500;
 }
@@ -311,7 +299,7 @@ section {
 .contact-card p {
     margin: 8px 0;
 }
-/* ==== FOOTER ==== */
+
 footer {
     background: #091342;
     text-align: center;
@@ -320,9 +308,8 @@ footer {
     color: #ccc;
 }
 
-/* ==== CHART / ENCUESTAS ==== */
 .chart-container {
-    background: rgba(15, 45, 100, 0.7); /* mismo color que cards */
+    background: rgba(15, 45, 100, 0.7);
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 15px;
@@ -370,14 +357,15 @@ footer {
     color: #ccc;
     margin-left: 5px;
 }
+
 h1 {
-    text-align: center;                /* centrado */
-    font-size: 2.2rem;                 /* un poco más grande */
-    color: white;                     /* llamativo */
-     font-family:  'Poppins', sans-serif ;
-    font-weight: 700;                   /* más grueso */
-    margin: 20px 0;                     /* separación */
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* ligero sombreado para destacar */
+    text-align: center;
+    font-size: 2.2rem;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin: 20px 0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
 .card-flip-container {
@@ -420,6 +408,101 @@ h1 {
 .card-back {
     transform: rotateY(180deg);
 }
+
+/* ====== RESPONSIVE DESIGN (Pantallas pequeñas) ====== */
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        padding-top: 60px;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-button {
+        width: 100%;
+        max-width: 280px;
+        margin-bottom: 10px;
+    }
+
+    .hero-image {
+        justify-content: center;
+    }
+
+    .vm-container,
+    .features-container,
+    .features-encuestas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vm-box,
+    .feature-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .analysis-table {
+        font-size: 0.9rem;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .analysis-table thead {
+        display: none;
+    }
+
+    .analysis-table td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .analysis-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .contact-card {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .corporate-gallery img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-img {
+        margin-bottom: 10px;
+    }
+}
+
 
 
 </style>
@@ -466,15 +549,21 @@ h1 {
                 <div class="hero-text">
                     <h1 class="hero-title">RINGMIND</h1>
                     <p class="hero-subtitle">Siempre a tiempo. Siempre confiable.</p>
+                    
+                    <!-- Botón Imagen Corporativa -->
                     <button class="hero-button" onclick="toggleGallery()">Imagen Corporativa</button>
+    
+                    <!-- Botón Plan Operativo -->
+                    <button class="hero-button" onclick="window.open('https://docs.google.com/spreadsheets/d/1eqToA5aDM8wuHPMZDFvAWhy618sYGxd0xY8Apqhh0MU/edit?gid=669170734', '_blank')">Plan Operativo</button>
                 </div>
+    
                 <div class="hero-image">
-                    <img src=" nuevo.png" alt="Logo del Producto" class="hero-logo" />
+                    <img src="nuevo.png" alt="Logo del Producto" class="hero-logo" />
                 </div>
             </div>
         </div>
     </section>
-  
+    
     <section class="corporate-gallery" id="gallery">
         <button class="close-gallery" onclick="toggleGallery()">Cerrar</button>
         <img src="Banner.png" alt="Imagen corporativa 1">
