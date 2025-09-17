@@ -380,6 +380,48 @@ h1 {
     text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* ligero sombreado para destacar */
 }
 
+.card-flip-container {
+    perspective: 1000px;
+    width: 320px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+.card-flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card-flip-container:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.card-front img,
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+
 </style>
 </head>
 
@@ -437,9 +479,29 @@ h1 {
         <button class="close-gallery" onclick="toggleGallery()">Cerrar</button>
         <img src="Banner.png" alt="Imagen corporativa 1">
         <img src="Promo.png" alt="Imagen corporativa 2">
-        <img src="img3.jpg" alt="Imagen corporativa 3">
-        <img src="img3.jpg" alt="Imagen corporativa 3">
-        <img src="img3.jpg" alt="Imagen corporativa 3">
+        <div class="card-flip-container">
+            <div class="card-flip">
+              <div class="card-front">
+                <img src="juanjofrente.png" alt="Frente de la tarjeta de Juan José Márquez">
+              </div>
+              <div class="card-back">
+                <img src="dorsotarjeta.png" alt="Dorso de la tarjeta de Juan José Márquez">
+              </div>
+            </div>
+          </div>
+        
+          <!-- Tarjeta: Otro miembro (Xio) -->
+          <div class="card-flip-container">
+            <div class="card-flip">
+              <div class="card-front">
+                <img src="xiofrente.png" alt="Frente de la tarjeta de Xio">
+              </div>
+              <div class="card-back">
+                <img src="dorsotarjeta.png" alt="Dorso de la tarjeta de Xio">
+              </div>
+            </div>
+          </div>
+        </div>
     </section>
     
     <section id="nosotros">
