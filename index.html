@@ -501,9 +501,21 @@ h1 {
     .logo-img {
         margin-bottom: 10px;
     }
+    .video-container {
+    width: 200px;       /* ancho deseado */
+    max-width: 80%;     /* responsive */
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-
+.video-container video {
+    width: 100%;
+    height: auto;       /* mantiene la proporción */
+    display: block;
+}
+}
 
 </style>
 </head>
@@ -590,6 +602,12 @@ h1 {
               </div>
             </div>
           </div>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="AnuncioPubliRingMing.mov" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
         </div>
     </section>
     
